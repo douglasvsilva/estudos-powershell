@@ -1,0 +1,258 @@
+
+ - Referencias de sites para estudo - 
+
+Curso de powershell
+  https://www.youtube.com/playlist?list=PLO_mlVzHgDw3EIKrT5rma_rmC4Lcc7ihT
+
+Tutorias de windows power shell
+  https://www.youtube.com/playlist?list=PLucm8g_ezqNpdK1sHdiDC3T8VMANcT5WZ
+
+
+Documentação do powerShell
+  https://learn.microsoft.com/pt-br/powershell/
+
+
+WinRM (Gerenciamento Remoto do Windows) e o ICM do PowerShell
+  https://www.youtube.com/watch?v=qMDt_NY9Qw0
+
+Conexão remota com PowerShell 7.x
+  https://www.jlgregorio.com.br/2021/06/13/conexao-remota-com-powershell-7-x/
+
+===============================================================================
+
+Comandos basicos - feitos no powershell em maquina linux
+by chatgpt - (obs: fiz os teste e todos funcionaram, em especial o Invoque-expression  "comnado-do-linux")
+
+    Listar diretórios e arquivos:
+    Get-ChildItem
+
+    Mudar diretório:
+    Set-Location /caminho/do/diretorio
+
+    Criar diretório:
+    New-Item -ItemType Directory -Path /caminho/do/novo/diretorio
+
+    Criar arquivo:
+    New-Item -ItemType File -Path /caminho/do/novo/arquivo
+
+    Copiar arquivo:
+    Copy-Item /caminho/do/arquivo /caminho/de/destino
+
+    Mover arquivo:
+    Move-Item /caminho/do/arquivo /caminho/de/destino
+
+    Excluir arquivo:
+    Remove-Item /caminho/do/arquivo
+
+    Excluir diretório:
+    Remove-Item /caminho/do/diretorio -Recurse
+
+    Verificar se um arquivo ou diretório existe:
+    Test-Path /caminho/do/arquivo_ou_diretorio
+
+    Executar um comando do Linux no PowerShell:
+    Invoke-Expression "ls -l"
+
+====================================================================================
+
+Segue um script em PowerShell que cria uma pasta chamada "arquivos" dentro da pasta "Meus Documentos" e um arquivo de texto chamado "teste.txt" dentro da pasta "arquivos" e escreve "Olá mundo!" dentro dele:
+
+mathematica
+
+$documentosPath = [Environment]::GetFolderPath("MyDocuments")
+$folderPath = Join-Path -Path $documentosPath -ChildPath "arquivos"
+New-Item -ItemType Directory -Path $folderPath -Force
+
+$file = Join-Path -Path $folderPath -ChildPath "teste.txt"
+$textContent = "Olá mundo!"
+Set-Content -Path $file -Value $textContent
+
+Explicação do código:
+
+    Primeiro, a variável $documentosPath é usada para obter o caminho completo da pasta "Meus Documentos".
+    Em seguida, a variável $folderPath é usada para concatenar o caminho completo da pasta "arquivos" dentro da pasta "Meus Documentos".
+    O comando New-Item é usado para criar a pasta "arquivos" no caminho especificado em $folderPath.
+    Depois, a variável $file é usada para concatenar o caminho completo do arquivo "teste.txt" dentro da pasta "arquivos".
+    A variável $textContent é usada para definir o conteúdo que será escrito no arquivo de texto.
+    O comando Set-Content é usado para criar o arquivo "teste.txt" e escrever o conteúdo especificado em $textContent dentro dele.
+
+Lembre-se de salvar o código em um arquivo com extensão ".ps1" e executá-lo em um console do PowerShell com privilégios de administrador.
+
+
+Segue um script em PowerShell que cria uma pasta chamada "arquivos" dentro da pasta "Documentos" e um arquivo de texto chamado "teste.txt" dentro da pasta "arquivos" e escreve "Olá mundo!" dentro dele:
+
+bash
+
+$documentosPath = $HOME + "/Documentos"
+$folderPath = $documentosPath + "/arquivos"
+mkdir -p $folderPath
+
+$file = $folderPath + "/teste.txt"
+$textContent = "Olá mundo!"
+echo $textContent > $file
+
+Explicação do código:
+
+    A variável $HOME é usada para obter o caminho completo do diretório home do usuário.
+    A variável $documentosPath é usada para concatenar o caminho completo da pasta "Documentos".
+    Em seguida, a variável $folderPath é usada para concatenar o caminho completo da pasta "arquivos" dentro da pasta "Documentos".
+    O comando mkdir -p é usado para criar a pasta "arquivos" no caminho especificado em $folderPath, incluindo a criação de diretórios pai se eles não existirem.
+    Depois, a variável $file é usada para concatenar o caminho completo do arquivo "teste.txt" dentro da pasta "arquivos".
+    A variável $textContent é usada para definir o conteúdo que será escrito no arquivo de texto.
+    O comando echo é usado para escrever o conteúdo especificado em $textContent dentro do arquivo "teste.txt".
+
+Lembre-se de salvar o código em um arquivo com extensão ".ps1" e executá-lo em um terminal do PowerShell Core no Linux. Certifique-se de que o PowerShell Core esteja instalado e disponível no sistema Linux antes de executar o script.
+
+==============================================================================
+
+
+Para acesso remoto pelo powershell
+  Certifique-se de que a máquina Windows que deseja acessar esteja configurada para permitir conexões remotas via PowerShell. Para fazer isso, execute o seguinte comando no PowerShell na máquina Windows que deseja acessar:
+
+Enable-PSRemoting -Force
+
+=====================================================================================================
+
+Como um assistente virtual, aqui estão alguns exemplos de comandos PowerShell úteis para administradores de rede:
+
+    Obter informações do sistema:
+
+    Get-ComputerInfo - exibe informações detalhadas do sistema.
+    Get-Process - exibe informações sobre processos em execução no sistema.
+    Get-Service - exibe informações sobre os serviços em execução no sistema.
+    Get-EventLog - exibe informações sobre os eventos registrados no log do sistema.
+
+    Gerenciamento de usuários e grupos:
+
+    New-LocalUser - cria um novo usuário local no computador.
+    Add-LocalGroupMember - adiciona um usuário ou grupo a um grupo local existente.
+    Remove-LocalGroupMember - remove um usuário ou grupo de um grupo local existente.
+    Get-ADUser - exibe informações sobre um usuário em um domínio Active Directory.
+    Get-ADGroup - exibe informações sobre um grupo em um domínio Active Directory.
+
+    Gerenciamento de rede:
+
+    Get-NetAdapter - exibe informações sobre as placas de rede no sistema.
+    Get-NetIPAddress - exibe informações sobre endereços IP atribuídos às interfaces de rede.
+    Test-NetConnection - verifica a conectividade de rede para um host específico.
+    Enable-NetAdapter - ativa uma placa de rede no sistema.
+    Disable-NetAdapter - desativa uma placa de rede no sistema.
+
+    Gerenciamento de segurança:
+
+    Get-Acl - exibe informações sobre as permissões de acesso em um arquivo ou pasta.
+    Set-Acl - modifica as permissões de acesso em um arquivo ou pasta.
+    Get-ExecutionPolicy - exibe o nível atual de política de execução para scripts PowerShell.
+    Set-ExecutionPolicy - define o nível de política de execução para scripts PowerShell.
+
+Esses são apenas alguns exemplos de comandos PowerShell úteis para administradores de rede. Para obter mais informações, você pode usar o comando Get-Help para obter ajuda sobre um comando específico ou usar o cmdlet Get-Command para listar todos os comandos disponíveis.
+
+
+=====================================================================================================
+
+
+Comandos 2 
+
+Ao usar get-date entre parameros quer dizer que ele vai executar primeiro o comando get-date que exibe a data do sistema e depois com o write-host exibe a dat na tela
+
+Write-Host -Object (get-date)
+
+se for usado get-date sem parentes o comando white-host o que ele vai exibir é só o nome get-date. Entendeu?
+
+
+Write-Host -Object "Douglas" -ForegroundColor yellow - exibe a string passda com cor
+Write-Host -Object "Douglas" -ForegroundColor yellow -BackgroundColor white - altera a cor da letra e a cor do fundo
+write-host "Douglas" "Silva" -Separator "`n" com o -separator podemos delimitar o que pose serpara uma strring da outra
+write-host "Douglas " -NoNewline; Write-Host "da silva" - com o -noneline permite que os resultados dos comandos fiquem na mesma linha e o ponto e virgula permite executar mais de um comando na mesma linha, sendo o ponto e virgula o separador dos comandos que se quer executar
+
+
+Operadores logicos
+
+citando os 3 mais usados
+and, or e not
+
+Exemplos:
+
+PS /home/douglas> 3 -eq 3
+True
+PS /home/douglas> (3 -eq 3) -and (3 -eq 3)
+True
+PS /home/douglas> (3 -eq 3) -and (3 -gt 4) 
+False
+PS /home/douglas> (3 -eq 3) -or (3 -gt 4) 
+True
+PS /home/douglas> 10-lt 50
+True
+PS /home/douglas> 10 -lt 50
+True
+PS /home/douglas> -not $true
+False
+PS /home/douglas> -not $False
+True
+PS /home/douglas> !(3 -eq 3)
+False
+PS /home/douglas> 
+
+
+Exemplo do uso do operador not com um if e else feito pelo terminal
+  if (!(test-path ./Documentos/)) {"Não faça nada"} else{"Crie o arquivo"}
+
+obs: 
+1 - A exclamação(!) e um alias do -not(operador)
+2 - test-path verifica se um caminho ate um arquivo ou pasta existe
+
+
+Estrutura de decisão
+
+if - baseado em qualquer linguagem que derive da linguagem C
+
+sintaxe: if () {}
+
+exemplo: if (1 -lt 5) {"1 é menor que 5"}
+
+Exemplo2:
+
+usando if para exibir se uma string está dentro de um arquivo
+obs: 
+sls é o alias para select-string
+gcm é o alias para get-childitem
+
+
+   if (gci ~/Documentos/arq.txt | sls "gosto de bolo") {"O rapaz gosta de bolo"} 
+O rapaz gosta de bolo
+
+exemplo3:
+  usando if e else
+
+  if (Get-Process cron) {"programa ativo"} else {"programa inativo"} 
+
+obs: op get=process lista todos os processos ativos no sistema
+
+
+ IF - ELSEIF - ELSE
+
+exemplo4:
+    
+criar uma arquivo com extensão .ps1
+
+inserir codigo 
+   $v = Read-Host "digite o valor" 
+
+if (1 -eq $v ){"1 é igual a "+$v} 
+elseif(1 -lt $v){ "1 é menor que "+$v}
+elseif(1 -gt $v){"1 é maior que "+$v} 
+else {"Esse valor é incorreto"}
+
+salvar e executar
+obs: read-host recebe algo que o usuario digita, no exemplo4 ele recebe direto em uma variavel
+
+switch
+
+conferir exercicios feitos em script
+
+
+Continua na aula 26
+
+
+
+
