@@ -151,7 +151,7 @@ Esses são apenas alguns exemplos de comandos PowerShell úteis para administrad
 =====================================================================================================
 
 
-Comandos 2 
+Comandos - Exemplos praticos do curso de powershell 
 
 Ao usar get-date entre parameros quer dizer que ele vai executar primeiro o comando get-date que exibe a data do sistema e depois com o write-host exibe a dat na tela
 
