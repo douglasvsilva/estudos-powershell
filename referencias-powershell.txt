@@ -251,8 +251,67 @@ switch
 conferir exercicios feitos em script
 
 
-Continua na aula 26
+Exercicios - Aulas 26 e 27
+
+
+while
+
+sintaxe:
+     while (condição) {repetição}
+
+
+Exemplos:
+<# Contagem de 1  até 10#>
+    $n = 1
+    while($n -le 10) {write-host $n; $n++ -NoNewline}
+
+<#progressão aritmetica#>
+
+     $i, $r, $a = 0, 3, $i # forma de declarar varias variaveis na mesma linha e com ordem
+     $n = 0
+     while ($n -l e 10) {
+      write-host = $a 
+      $a += $r 
+      $n++
+     }
+
+  <# While infinito#>
+     $ent = ""
+
+     while ($ent -ne "Seu nome"){
+        write-host "Digite seu nome para sair "
+        write-host "Seu nome é $ent"
+
+     }
+
+
+do-while
+
+Executa pelo menos uma vez e depois verifica
+
+sintaxe:
+    do {
+      ação
+    } while(condição)
+
+Exemplo:
+
+   do {
+    $n1 = [float]read-host "primeira nota"
+    $n2 = [float]read-host "segunda nota"
+    $media = ($n1 + $n2 )/2
+    write-host "a media do aluno é $media"
+
+   } while( n1 -ne 0 -or n2 -ne 0)
+
+
+Continue
+
+Exemplos de codigos em Exc-contiue.ps1     
 
 
 
-
+Break
+   Quebrando a execução do codigo
+obs:
+Exemplos de codigos em Exc-break.ps1
