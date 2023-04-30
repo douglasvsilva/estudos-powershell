@@ -1,2 +1,2 @@
 # estudos-powershell
-Respositorio com comandos de estudos feitos em powershell
+Repositorio de estudos com powershell
