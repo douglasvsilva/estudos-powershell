@@ -21,7 +21,7 @@ Conexão remota com PowerShell 7.x
 ===============================================================================
 
 Comandos basicos - feitos no powershell em maquina linux
-by chatgpt - (obs: fiz os teste e todos funcionaram, em especial o Invoque-expression  "comnado-do-linux")
+by chatgpt - (obs: fiz os teste e todos funcionaram, destaque para o Invoque-expression  "comnado-do-linux")
 
     Listar diretórios e arquivos:
     Get-ChildItem
